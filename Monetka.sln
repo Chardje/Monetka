@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monetka", "Monetka\Monetka.csproj", "{BE36D558-8E75-4A2E-8750-8A72D9C282EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE36D558-8E75-4A2E-8750-8A72D9C282EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE36D558-8E75-4A2E-8750-8A72D9C282EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE36D558-8E75-4A2E-8750-8A72D9C282EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE36D558-8E75-4A2E-8750-8A72D9C282EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DEE0A31C-7856-47C9-93D4-47B829BDC1B8}
+	EndGlobalSection
+EndGlobal
