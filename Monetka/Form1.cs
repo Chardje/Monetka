@@ -62,7 +62,7 @@ namespace Monetka
         private void ConectButton_Click(object sender, EventArgs e)
         {
             ServerButton.Enabled = !ServerButton.Enabled;
-            if (ServerButton.Text == "Conect")
+            if (ConectButton.Text == "Conect")
             {
                 ConectButton.Text = "Disconect";
                 client = new MonetkaClient(int.Parse(PortTextBox.Text),IPAddress.Parse(textBoxIp.Text));
@@ -82,7 +82,9 @@ namespace Monetka
             {
                 ServerButton.Text = "Close Server";
                 server = new MonetcaServer();
-                textBoxIp.Text = "" + server.tcpListener.LocalEndpoint;
+                IPHostEntry ipEntry = Dns.GetHostEntry(Dns.GetHostName());
+                IPAddress[] addr = ipEntry.AddressList;
+                textBoxIp.Text = "" + addr[addr.Length-1];
                 PortTextBox.Text = "" + server.port;
                 server.serverlisen = true;
                 Lis = new Thread(new ThreadStart(server.ServerListen));
