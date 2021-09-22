@@ -46,8 +46,9 @@ namespace Monetka
             else
             {
                 client.WriteMyChose(Heads.Checked);
-                TrueMonetka = client.ReadMonetka();
             }
+            /*
+            TrueMonetka = client.ReadMonetka();
             if (TrueMonetka)
             {
                 pictureMonetka.Image= Image.FromFile("C:/Users/vlad/source/repos/Monetka/Monetka/head.jpg");
@@ -56,7 +57,7 @@ namespace Monetka
             {
                 pictureMonetka.Image = Image.FromFile("C:/Users/vlad/source/repos/Monetka/Monetka/Tail.jpg");
 
-            }
+            }*/
         }
 
         private void ConectButton_Click(object sender, EventArgs e)
@@ -65,7 +66,7 @@ namespace Monetka
             if (ConectButton.Text == "Conect")
             {
                 ConectButton.Text = "Disconect";
-                client = new MonetkaClient(int.Parse(PortTextBox.Text),IPAddress.Parse(textBoxIp.Text));
+                client = new MonetkaClient(int.Parse(PortTextBox.Text),IPAddress.Parse(textBoxIp.Text), TrueMonetkaRavn);
                 
             }
             else
@@ -96,5 +97,10 @@ namespace Monetka
                 server.serverlisen = false;
             }
         }  
+        
+        public void TrueMonetkaRavn(bool tru)
+        {
+            TrueMonetka = tru;
+        }
     }
 }

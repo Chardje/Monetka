@@ -15,6 +15,9 @@ namespace Monetka
         public IPEndPoint remoteEndpoint;
         public IPEndPoint localEndpoint;
         public Stream stream;
+        public Tru tru1;
+
+        public delegate void Tru(bool tru);
         public MonetkaClient(int remotePort, IPAddress local, IPAddress remoute)
         {
             port = new Random().Next(1, 9999);
@@ -27,16 +30,23 @@ namespace Monetka
                 stream = tcpClient.GetStream();
             }
         }
-        public MonetkaClient(int remotePort, IPAddress local)
+        public MonetkaClient(int remotePort, IPAddress local,Tru tru)
         {
             port = new Random().Next(1, 9999);
             remoteEndpoint = new IPEndPoint(local, remotePort);
             localEndpoint = new IPEndPoint(local, port);
+            tru1 = tru;
             
             using (TcpClient tcpClient = new TcpClient(localEndpoint))
             {
                 tcpClient.Connect(remoteEndpoint);
                 stream = tcpClient.GetStream();
+                while (true)
+                {
+                    bool tr = ReadMonetka();
+                    tru1(tr);
+                }
+
             }
         }
 
@@ -48,7 +58,7 @@ namespace Monetka
         public bool ReadMonetka()
         {
             byte[] array = new byte[1];
-            stream.ReadAsync(array, 0, 1);
+            stream.Read(array, 0, 1);
 
             return array[0] > 0;
         }

@@ -46,7 +46,7 @@ namespace Monetka
         bool ReadChose()
         {
             byte[] array = new byte[1];
-            stream.ReadAsync(array,0,1);
+            stream.Read(array,0,1);
             
             return array[0] > 0;
         }
@@ -54,7 +54,7 @@ namespace Monetka
         void WriteChose(bool chose)
         {
             byte[] array = { Convert.ToByte(chose) };
-            stream.WriteAsync(array, 0, 1);
+            stream.Write(array, 0, 1);
 
             
         }
