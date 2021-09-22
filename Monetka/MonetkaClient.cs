@@ -36,7 +36,10 @@ namespace Monetka
             remoteEndpoint = new IPEndPoint(local, remotePort);
             localEndpoint = new IPEndPoint(local, port);
             tru1 = tru;
-            
+        }
+
+        public void Usingg()
+        {
             using (TcpClient tcpClient = new TcpClient(localEndpoint))
             {
                 tcpClient.Connect(remoteEndpoint);

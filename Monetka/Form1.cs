@@ -67,7 +67,8 @@ namespace Monetka
             {
                 ConectButton.Text = "Disconect";
                 client = new MonetkaClient(int.Parse(PortTextBox.Text),IPAddress.Parse(textBoxIp.Text), TrueMonetkaRavn);
-                
+                Lis = new Thread(new ThreadStart(client.Usingg));
+                Lis.Start();
             }
             else
             {
